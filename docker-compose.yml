@@ -1,0 +1,16 @@
+services:
+  zabbix-proxy:
+    container_name: ProxyZabbix
+    image: zabbix/zabbix-proxy-sqlite3:ubuntu-6.4.18
+    restart: always
+    environment:
+      - ZBX_HOSTNAME=###proxy-name###
+      - ZBX_SERVER_HOST=HOST
+      - ZBX_TLSPSKIDENTITY=key-###proxy-name###
+      - ZBX_TLSPSKFILE=/var/lib/zabbix/enc/zabbix_proxy_psk
+      - ZBX_PROXYOFFLINEBUFFER=4
+      - ZBX_TLSCONNECT=psk
+      - ZBX_TLSACCEPT=psk
+    volumes:
+      - /mnt/c/proxyzabbix/key/zabbix_proxy_psk:/var/lib/zabbix/enc/zabbix_proxy_psk
+    network_mode: "host"
