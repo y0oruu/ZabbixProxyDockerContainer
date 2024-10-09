@@ -30,7 +30,7 @@ If (Test-Path -Path C:\proxyzabbix\key\zabbix_proxy_psk) { // modify path accord
 
 # Start docker container 
 wsl --exec dbus-launch true 
-wsl.exe -d Ubuntu -u "user" cp /mnt/c/proxyzabbix/d-compose/docker-compose.yml ~/docker/docker-compose.yml // modify path according to your path
-wsl.exe -d Ubuntu -u "user" docker compose -f ~/docker/docker-compose.yml up -d // modify path according to your path
+wsl.exe -d "distroName" -u "user" cp /mnt/c/proxyzabbix/d-compose/docker-compose.yml ~/docker/docker-compose.yml // modify path according to your path
+wsl.exe -d "distroName" -u "user" docker compose -f ~/docker/docker-compose.yml up -d // modify path according to your path
 
 Remove-Item "C:\proxyzabbix\d-compose\docker-compose.yml" // modify path according to your path
